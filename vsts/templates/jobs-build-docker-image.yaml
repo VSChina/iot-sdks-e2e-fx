@@ -11,11 +11,6 @@ jobs:
 
   - template: steps-ensure-e2e-fx-repo.yaml
 
-  - task: UsePythonVersion@0
-    inputs:
-      versionSpec: '3.x'
-      architecture: 'x64'
-
   - powershell: |
       $BuildImage="yes"
       if ($env:ForcedImage -ne "") {
@@ -40,12 +35,6 @@ jobs:
         eq(variables['buildImage'],'yes'),
         not(eq(variables['Horton.FrameworkRoot'], variables['Build.SourcesDirectory']))
         )
-
-  - task: UsePythonVersion@0
-    inputs:
-      versionSpec: '3.x'
-      architecture: 'x64'
-    condition: and(succeeded(), eq(variables['buildImage'],'yes'))
 
   - script: |
       python3 -m pip install -r $(Horton.FrameworkRoot)/pyscripts/requirements.txt

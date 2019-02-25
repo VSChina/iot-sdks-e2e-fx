@@ -10,12 +10,6 @@ parameters:
 
 steps:
 
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '3.x'
-    architecture: 'x64'
-  condition: and(succeeded(), ne(variables['skipTest'],'yes'))
-
 - script: |
     $(Horton.FrameworkRoot)/scripts/setup-python36.sh
   displayName: 'install python libs'
