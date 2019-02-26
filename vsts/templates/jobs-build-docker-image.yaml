@@ -37,7 +37,7 @@ jobs:
         )
 
   - script: |
-      python3 -m pip install -r $(Horton.FrameworkRoot)/pyscripts/requirements.txt
+      python3 -m pip install --user -r $(Horton.FrameworkRoot)/pyscripts/requirements.txt
     displayName: "pip install requirements.txt"
     condition: and(succeeded(), eq(variables['buildImage'],'yes'))
 

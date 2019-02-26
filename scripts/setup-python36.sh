@@ -19,12 +19,12 @@ if [ $needpython -eq 1 ]; then
 fi
 
 cd ${script_dir}/.. &&  \
-    python3 -m pip install -e horton_helpers
+    python3 -m pip install --user -e horton_helpers
 [ $? -eq 0 ] || { echo "install horton_helpers failed"; exit 1; }
 
 # install requirements for our test runner
 cd ${script_dir}/../test-runner &&  \
-    python3 -m pip install -r requirements.txt
+    python3 -m pip install --user -r requirements.txt
 [ $? -eq 0 ] || { echo "pip install requirements.txt failed"; exit 1; }
 
 
