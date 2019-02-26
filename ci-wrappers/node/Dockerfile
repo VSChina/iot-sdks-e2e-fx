@@ -1,4 +1,4 @@
-FROM node:6-slim
+FROM arm32v7/node:6-slim
 
 RUN apt update \
   && apt install --fix-missing -y \
@@ -12,7 +12,7 @@ RUN git config --global user.email "you@example.com" \
 &&  git config --global user.name "Your Name" \
 &&  git config --global core.autocrlf true
 
-env DEBUG=rhea*,azure*
+ENV DEBUG=rhea*,azure*
 EXPOSE 9229
 EXPOSE 8080
 
