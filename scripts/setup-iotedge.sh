@@ -3,22 +3,6 @@
 
 script_dir=$(cd "$(dirname "$0")" && pwd)
 
-# install moby-engine
-curl -L https://aka.ms/moby-engine-armhf-latest -o moby_engine.deb && sudo dpkg -i ./moby_engine.deb
-[ $? -eq 0 ] || { echo "install moby-engine failed"; exit 1; }
-
-rm ./moby_engine.deb
-
-# install moby-cli
-curl -L https://aka.ms/moby-cli-armhf-latest -o moby_cli.deb && sudo dpkg -i ./moby_cli.deb
-[ $? -eq 0 ] || { echo "install moby-cli failed"; exit 1; }
-
-rm ./moby_cli.deb
-
-# Run apt-get fix
-sudo apt-get install -f
-[ $? -eq 0 ] || { echo "run apt-get fix failed"; exit 1; }
-
 # install the standard libiothsm implementation
 curl -L https://aka.ms/libiothsm-std-linux-armhf-latest -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
 [ $? -eq 0 ] || { echo "install libiothsm failed"; exit 1; }

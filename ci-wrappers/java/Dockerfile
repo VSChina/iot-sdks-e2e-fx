@@ -1,4 +1,4 @@
-FROM maven:3.3-jdk-8
+FROM arm32v7/maven:3.6-jdk-8
 
 # Move the default M2 directory somewhere that gets persisted with the package.
 ENV MAVEN_CONFIG=/usr/share/maven/ref
